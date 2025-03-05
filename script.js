@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("new-challenge").addEventListener("click", generateChallenge);
     document.getElementById("complete-challenge").addEventListener("click", completeChallenge);
     document.getElementById("new-quote").addEventListener("click",displayQuote());
+    document.addEventListener("DOMContentLoaded",displayMotivations);
 });
 function displayGyan(){
     const quotes = [
