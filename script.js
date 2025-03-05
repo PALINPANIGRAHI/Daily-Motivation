@@ -113,3 +113,14 @@ function completeChallenge() {
     count++;
     countElement.textContent = count;
 }
+const slides = document.querySelectorAll(".slide");
+let index = 0;
+
+function changeSlide() {
+    slides.forEach((slide, i) => {
+        slide.style.opacity = i === index ? "1" : "0";
+    });
+    index = (index + 1) % slides.length;
+}
+
+setInterval(changeSlide, 4000); // Change every 4 seconds
