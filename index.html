@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Motivation App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>🌟 Daily Motivation 🌟</h1>
+        
+        <div class="quote-box">
+            <h2>Today's Quote:</h2>
+            <p id="quote">Loading...</p>
+        </div>
+        <div class="Geeta-quote">
+            <h2>Bhagwat Gyan:</h2>
+            <p id="gyan">Loading...</p>
+        </div>
+
+        <div class="challenge-box">
+            <h2>Today's Challenge:</h2>
+            <p id="challenge">Press the button for a challenge!</p>
+            <button id="new-challenge">Get New Challenge</button>
+            <button id="complete-challenge">Mark as Completed ✅</button>
+            <p id="progress">Challenges Completed: <span id="count">0</span></p>
+        </div>
+
+        <div class="motivation-container">
+            <h2>Share Your Motivation</h2>
+            <textarea id="motivation-input" placeholder="Write your motivational message..."></textarea>
+            <button id="submit-btn">Submit</button>
+        </div>
+        
+        <div class="motivation-list">
+            <h3>User Motivations</h3>
+            <ul id="motivation-display"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
