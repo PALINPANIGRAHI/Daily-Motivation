@@ -112,7 +112,40 @@ function completeChallenge() {
     let count = parseInt(countElement.textContent) || 0;
     count++;
     countElement.textContent = count;
+    localStorage.setItem("count",count);
+    
+    
 }
+document.addEventListener("DOMContentLoaded", function () {
+    let countElement = document.getElementById("count");
+    let progressBar = document.getElementById("progressBar"); // Fixed typo in ID
+    let savedCount = localStorage.getItem("count");
+
+    // Total challenges (adjust this value as needed)
+    let totalChallenges = 100; 
+
+    // Load saved count on page load
+    let count = savedCount !== null ? parseInt(savedCount) : 0;
+    countElement.textContent = count;
+    updateProgressBar(count);
+
+    document.getElementById("markCompleted").addEventListener("click", function () {
+        let count = parseInt(localStorage.getItem("count")) || 0;
+        if (count < totalChallenges) { // Prevent exceeding total
+            count++; // Increment count
+            countElement.textContent = count; // Update UI
+            localStorage.setItem("count", count); // Save updated count
+            updateProgressBar(count);
+        }
+    });
+
+    function updateProgressBar(count) {
+        let progress = (count / totalChallenges) * 100;
+        progressBar.style.width = progress + "%"; 
+        progressBar.textContent = Math.round(progress) + "%"; // Optional: show percentage
+    }
+});
+
 const slides = document.querySelectorAll(".slide");
 let index = 0;
 
