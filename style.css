@@ -1,10 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
+    background: black !important;
     color: white;
     text-align: center;
     margin: 0;
     padding: 20px;
+    overflow: hidden;
+    overflow-y: auto !important;
 }
 .header{
     display:flex;
@@ -16,16 +18,18 @@ body {
 .container {
     max-width: 500px;
     margin: auto;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.4);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    overflow-y: auto;
 }
 
 .quote-box, .challenge-box,.Geeta-quote {
     margin-bottom: 20px;
     padding: 15px;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 8px;
 }
 
@@ -98,6 +102,11 @@ li {
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    top: 0;
+    left: 0;
+    background: black;
+    z-index: -1;
+    pointer-events: none;
 }
 
 .slide {
@@ -106,7 +115,7 @@ li {
     height: 100%;
     background-size: cover;
     background-position: center;
-    opacity: 0;
+    opacity: 0;/*initially hidden*/
     animation: fade 12s infinite;
 }
 
@@ -114,7 +123,14 @@ li {
 .slide:nth-child(2) { animation-delay: 4s; }
 .slide:nth-child(3) { animation-delay: 8s; }
 
+.slide:first-child{
+    opacity:1;
+}
+
 @keyframes fade {
-    0%, 100% { opacity: 0; }
-    25%, 75% { opacity: 1; }
+    0% {opacity: 0};
+    25% {opacity: 1};
+    50% {opacity: 1};
+    75% {opacity : 0};
+    100% {opacity: 0};
 }
